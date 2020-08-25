@@ -29,20 +29,36 @@ Stack  | version |
 - Angular CLI
 - Firebase Project (oshop-angular-v1)
 
-## Application Build/Run 
-ng new oshop
-cd oshop
-ng serve
-
 #### NPM Packages
+```
 npm i --save firebase
 npm i --save @angular/fire
 npm i --save bootstrap
+````
+
+## Application Build 
+```
+ng new oshop
+cd oshop
+ng g c navbar
+ng g c home
+ng g c products
+ng g c shopping-cart
+ng g c checkout
+ng g c order-success
+ng g c my-orders
+ng g c admin/admin-products
+ng g c admin/admin-orders
+```
+
+## Application Run
+```
+cd oshop 
+ng serve
+````
 
 ## Application URL
 http://localhost:4200
-
-
 
 
 ## Further enhancements 
