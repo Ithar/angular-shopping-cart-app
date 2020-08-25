@@ -37,7 +37,7 @@ ng serve
 #### NPM Packages
 npm i --save firebase
 npm i --save @angular/fire
-
+npm i --save bootstrap
 
 ## Application URL
 http://localhost:4200
