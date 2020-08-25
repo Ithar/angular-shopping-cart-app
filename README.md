@@ -17,25 +17,32 @@ Stack  | version |
 --- | --- |  
 *Frontend* | Angular 10
 *Node* | v12.18.1
-*DB* | firebase
+*Hosting* | firebase 
 *Build Tool* | Angular CLI
 *CI* | n/a 
 *Code Coverage* | n/a
 *Build env* | firebase
 
-## Application Set-up
-npm install -g @angular/cli
-mkdir src
+## Prerequisite 
+- node
+- npm
+- Angular CLI
+- Firebase Project (oshop-angular-v1)
 
-#### Angular
+## Application Build/Run 
 ng new oshop
+cd oshop
+ng serve
 
-## Application Run
+ng add @angular/fire (Install AngularFire and Firebase)
 
+
+#### NPM Packages
+
+## Application URL
 http://localhost:4200
 
 
-## Application Build 
-```
+
 
 ## Further enhancements 
