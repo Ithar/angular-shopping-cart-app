@@ -34,10 +34,10 @@ ng new oshop
 cd oshop
 ng serve
 
-ng add @angular/fire (Install AngularFire and Firebase)
-
-
 #### NPM Packages
+npm i --save firebase
+npm i --save @angular/fire
+
 
 ## Application URL
 http://localhost:4200
