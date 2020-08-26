@@ -17,11 +17,10 @@ Stack  | version |
 --- | --- |  
 *Frontend* | Angular 10
 *Node* | v12.18.1
-*Hosting* | firebase 
+*Hosting* | firebase (8.9.0)
 *Build Tool* | Angular CLI
 *CI* | n/a 
 *Code Coverage* | n/a
-*Build env* | firebase
 
 ## Prerequisite 
 - node
@@ -35,9 +34,10 @@ npm i --save firebase
 npm i --save @angular/fire
 npm i --save bootstrap
 ng add @ng-bootstrap/ng-bootstrap
+sudo npm i -g firebase-tools
 ```
 
-## Application Build 
+## Application Build/Components 
 ```
 ng new oshop
 cd oshop
@@ -57,7 +57,18 @@ ng g c admin/admin-orders
 ```
 cd oshop 
 ng serve
-````
+```
+
+## Application Deploy
+```
+cd oshop
+ng build --prod
+
+firebase login
+firebase init
+firebase depoly
+```
+
 
 ## Application URL
 http://localhost:4200

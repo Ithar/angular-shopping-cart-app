@@ -20,3 +20,12 @@ firebase deploy
 Installation Notes:
 https://fireship.io/snippets/install-angularfire/
 https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
+
+
+========= 
+Setup options  
+
+> Hosting
+> Use an existing project
+> Default project? oshop-angulaur-v1
+> public directory? dist
