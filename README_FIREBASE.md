@@ -25,7 +25,15 @@ https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
 ========= 
 Setup options  
 
+```
+firebase login
+firebase init
+
 > Hosting
 > Use an existing project
 > Default project? oshop-angulaur-v1
 > public directory? dist
+
+firebase serve 
+firebase depoly
+```

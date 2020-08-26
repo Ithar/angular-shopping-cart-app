@@ -65,13 +65,15 @@ cd oshop
 ng build --prod
 
 firebase login
-firebase init
 firebase depoly
 ```
 
 
 ## Application URL
-http://localhost:4200
+LocaL : http://localhost:4200
 
+Project Console: https://console.firebase.google.com/project/oshop-angular-v1/overview
+
+Hosting URL: https://oshop-angular-v1.web.app
 
 ## Further enhancements 
