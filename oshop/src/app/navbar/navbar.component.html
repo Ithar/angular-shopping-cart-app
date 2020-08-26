@@ -7,9 +7,6 @@
   </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/shopping-cart">Cart</a>
         </li>
@@ -21,12 +18,12 @@
             Username
           </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/">My Orders</a>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" routerLink="/my-orders">My Orders</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
             <a class="dropdown-item" href="/admin/products">Manage Products</a>
-            
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Logout</a>
           </div>
         </li>
       </ul>
