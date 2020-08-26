@@ -34,7 +34,8 @@ Stack  | version |
 npm i --save firebase
 npm i --save @angular/fire
 npm i --save bootstrap
-````
+ng add @ng-bootstrap/ng-bootstrap
+```
 
 ## Application Build 
 ```
