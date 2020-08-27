@@ -1,3 +1,4 @@
+import { AdminAuthGuard } from './service/admin-auth-guard.service';
 import { AuthGuard } from './service/auth-guard.service';
 import { RouterModule } from '@angular/router';
 import { environment } from './../environments/environment';
@@ -54,8 +55,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
       { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
     
-      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard] },
-      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard] }
+      { path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard, AdminAuthGuard] }
     ])
   ],
   providers: [],

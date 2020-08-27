@@ -55,6 +55,7 @@ ng g c admin/admin-orders
 ng g s service/auth
 ng g s service/auth-guard
 ng g s service/user
+ng g s service/admin-auth-guard
 ```
 
 ## Application Run
