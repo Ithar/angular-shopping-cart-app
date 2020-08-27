@@ -12,7 +12,7 @@ export class AppComponent {
   
   constructor(private authService : AuthService, private userService: UserService, router : Router) {
 
-    authService.user$.subscribe(user => {
+    authService.firebaseUser$.subscribe(user => {
       if (user) {
         userService.save(user);
         router.navigateByUrl('/');  

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from '@firebase/app';
 import '@firebase/auth';
-
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,10 +12,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   private authProvider: any;
-  user$: Observable<firebase.User>;
+  firebaseUser$: Observable<firebase.User>;
   
-  constructor(private afAuth: AngularFireAuth) { 
-    this.user$ = afAuth.authState;  
+  constructor(private afAuth: AngularFireAuth, private router : Router) { 
+    this.firebaseUser$ = afAuth.authState;  
   }
 
   login(provider : number) {
@@ -33,5 +34,19 @@ export class AuthService {
 
   logout() {
     this.afAuth.signOut();
+  }
+
+  isLoggedIn(): Observable<boolean> {
+
+    return this.firebaseUser$.pipe(
+      map( user => {
+        if (user) {
+          return true;
+        }
+
+        this.router.navigate(['/login']);
+        return false;
+      }
+    ));
   }
 }

@@ -30,7 +30,7 @@ export class UserService {
 
   get appUser$(): Observable<AppUser> {
 
-      return this.authService.user$
+      return this.authService.firebaseUser$
       .pipe(
         switchMap(user => {
           if (user) {
