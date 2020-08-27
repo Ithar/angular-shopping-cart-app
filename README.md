@@ -52,7 +52,8 @@ ng g c my-orders
 ng g c admin/admin-products
 ng g c admin/admin-orders
 
-ng g s auth
+ng g s service/auth
+ng g s service/auth-guard
 ```
 
 ## Application Run

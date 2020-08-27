@@ -14,8 +14,10 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "firebase",
-              "@firebase/app"
+              "firebase/app",
+              "@firebase/app",
+              "@firebase/auth",
+              "@firebase/database"
           ],
             "outputPath": "dist/oshop",
             "index": "src/index.html",
