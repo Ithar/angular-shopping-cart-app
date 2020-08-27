@@ -54,6 +54,7 @@ ng g c admin/admin-orders
 
 ng g s service/auth
 ng g s service/auth-guard
+ng g s service/user
 ```
 
 ## Application Run
@@ -74,9 +75,7 @@ firebase depoly
 
 ## Application URL
 LocaL : http://localhost:4200
-
-Project Console: https://console.firebase.google.com/project/oshop-angular-v1/overview
-
-Hosting URL: https://oshop-angular-v1.web.app
+Hosting: https://oshop-angular-v1.web.app
+Console: https://console.firebase.google.com/project/oshop-angular-v1/overview
 
 ## Further enhancements 
