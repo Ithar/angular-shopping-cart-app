@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { ProductService } from './../../service/product.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProductsComponent implements OnInit {
 
-  constructor() { }
+  products$: Observable<any[]>
+
+  constructor(productService: ProductService) { 
+    this.products$ =  productService.list();
+  }
 
   ngOnInit(): void {
   }

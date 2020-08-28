@@ -2,3 +2,24 @@
 <hr>
 
 <a routerLink="/admin/product-new" class="btn btn btn-outline-primary btn-sm">Add new product</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products$ | async">
+            <td>
+                <img [src]="p.data.image" width="50px" height="50px">
+            </td>
+            <td>{{ p.data.title }}</td>
+            <td>{{ p.data.price | currency:'GBP':true}}</td>
+            <td><a [routerLink]="['/admin/product/', p.id]">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
