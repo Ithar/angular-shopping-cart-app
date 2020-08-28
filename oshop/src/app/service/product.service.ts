@@ -38,5 +38,9 @@ export class ProductService {
     .then(() => console.log('Product saved to DB'));
   }
 
+  update(productId, product) {
+    return this.db.list('/products').update(productId, product)
+    .then(() => console.log('DB: Product updated'));
+  }
   
 }
