@@ -62,15 +62,21 @@
                 </div>
             </div>
 
-          
             <button class="btn btn-product-add btn-sm">Add</button>
-        </form>    
+        </form>
+
+        <div class="msg-success" *ngIf="successMsg">    
+            <p class="alert alert-success">
+                <strong>Car added successfully!</strong> To view listing page click <a routerLink="/admin/products">here</a>.
+            </p>
+        </div>
+
     </div>
 
     <!-- PREVIEW -->
     <div class="col-md-5">
         <div class="card" style="width: 28rem;">
-            <img class="card-img-top" [src]="image.value" alt="Image preview">
+            <img class="card-img-top" [src]="image.value">
             <div class="card-body">
                 <h5 class="card-title">Car preview</h5>
                 <h6>{{ title.value }}</h6>

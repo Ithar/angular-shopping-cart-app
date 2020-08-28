@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminProductFormComponent implements OnInit {
 
   categories$;
+  successMsg: boolean = false;
   
     constructor(private productService: ProductService, categoryService: CategoryService) { 
     this.categories$ = categoryService.getCategories();
@@ -19,6 +20,15 @@ export class AdminProductFormComponent implements OnInit {
   }
 
   save(product) {
-    this.productService.save(product);
+
+    this.productService.save(product)
+    .then(() => {
+      this.successMsg = true;
+
+      setTimeout(() => {
+        this.successMsg = false;
+     }, 3000)
+
+    });
   }
 }
