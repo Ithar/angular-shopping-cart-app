@@ -57,6 +57,8 @@ ng g s service/auth
 ng g s service/auth-guard
 ng g s service/user
 ng g s service/admin-auth-guard
+ng g s service/category
+ng g s service/product
 ```
 
 ## Application Run
