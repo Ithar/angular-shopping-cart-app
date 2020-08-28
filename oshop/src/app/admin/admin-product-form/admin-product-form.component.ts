@@ -1,7 +1,7 @@
 import { Product } from './../../model/product';
 import { ProductService } from './../../service/product.service';
 import { CategoryService } from './../../service/category.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './admin-product-form.component.html',
   styleUrls: ['./admin-product-form.component.css']
 })
-export class AdminProductFormComponent implements OnInit {
+export class AdminProductFormComponent {
 
   id: string;
   product = {};
@@ -30,9 +30,6 @@ export class AdminProductFormComponent implements OnInit {
       this.isUpdate = true;
       this.id = id;
     }
-  }
-
-  ngOnInit(): void {
   }
 
   getById(id: string, productService: ProductService) {

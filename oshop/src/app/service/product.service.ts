@@ -14,7 +14,7 @@ export class ProductService {
   }
 
   get(productId): Observable<any> {
-    console.log('GET: productId:' + productId);
+    console.log('DB: getting:' + productId);
     return this.db.object('/products/' + productId).valueChanges().pipe(take(1));
   }
 

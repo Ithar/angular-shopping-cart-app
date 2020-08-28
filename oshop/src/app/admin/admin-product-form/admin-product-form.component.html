@@ -1,4 +1,5 @@
-<h2>Add new car</h2>
+<h2 *ngIf="!isUpdate">Add new car</h2>
+<h2 *ngIf="isUpdate">Update car</h2>
 <hr>
 
 <div *ngIf="product" class="row">
@@ -62,14 +63,16 @@
                 </div>
             </div>
 
-            <button *ngIf="!isUpdate" class="btn btn-product-add btn-sm">Add</button>
+            <!-- buttons -->
+            <button *ngIf="!isUpdate" class="btn btn-product-add btn-sm mr-1">Add</button>
             <ng-container *ngIf="isUpdate">
-                <button>Update</button>
-                <button (click)="delete()" type="button" class="btn btn-danger btn-sm">Delete</button>
+                <button class="btn btn-info btn-sm mr-1">Update</button>
+                <button (click)="delete()" type="button" class="btn btn-danger btn-sm mr-1">Delete</button>
             </ng-container>
-            <button class="btn btn-warn btn-sm">Back</button>
+            <a routerLink="/admin/products" class="btn btn-warning btn-sm">Back</a>
         </form>
 
+        <!-- form messages -->
         <div class="msg-success" *ngIf="showAddditionsMsg || showUpdateMsg">    
             <p class="alert alert-success">
                 <span *ngIf="showAddditionsMsg">
