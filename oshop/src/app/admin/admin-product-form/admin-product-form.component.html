@@ -62,10 +62,12 @@
                 </div>
             </div>
 
-            <button class="btn btn-product-add btn-sm">
-                <span *ngIf="!isUpdate">Add</span>
-                <span *ngIf="isUpdate">Update</span>
-            </button>
+            <button *ngIf="!isUpdate" class="btn btn-product-add btn-sm">Add</button>
+            <ng-container *ngIf="isUpdate">
+                <button>Update</button>
+                <button (click)="delete()" type="button" class="btn btn-danger btn-sm">Delete</button>
+            </ng-container>
+            <button class="btn btn-warn btn-sm">Back</button>
         </form>
 
         <div class="msg-success" *ngIf="showAddditionsMsg || showUpdateMsg">    

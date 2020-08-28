@@ -35,12 +35,17 @@ export class ProductService {
 
   save(product) {
     return this.db.list('/products').push(product)
-    .then(() => console.log('Product saved to DB'));
+    .then(() => console.log('DB: saved'));
   }
 
   update(productId, product) {
     return this.db.list('/products').update(productId, product)
-    .then(() => console.log('DB: Product updated'));
+    .then(() => console.log('DB: updated:' + productId));
+  }
+
+  delete(productId) {
+    return this.db.object('/products/' + productId).remove()
+    .then(() => console.log('DB: Deleted' + productId));
   }
   
 }

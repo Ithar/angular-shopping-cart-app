@@ -2,7 +2,7 @@ import { Product } from './../../model/product';
 import { ProductService } from './../../service/product.service';
 import { CategoryService } from './../../service/category.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-product-form',
@@ -19,9 +19,9 @@ export class AdminProductFormComponent implements OnInit {
   showAddditionsMsg: boolean = false;
   showUpdateMsg: boolean = false;
   
-  constructor(private productService: ProductService, categoryService: CategoryService, router: ActivatedRoute) { 
+  constructor(private productService: ProductService, categoryService: CategoryService, private router: Router, activeRouter: ActivatedRoute) { 
 
-    let id = router.snapshot.paramMap.get('id');
+    let id = activeRouter.snapshot.paramMap.get('id');
 
     this.getById(id, productService);
     this.getCategories(categoryService);
@@ -64,8 +64,13 @@ export class AdminProductFormComponent implements OnInit {
           this.showAddditionsMsg = false;
         }, 3000)
       });
-    }
+    }    
+  }
 
-    
+  delete() {
+    if (this.id) {
+      this.productService.delete(this.id);
+      this.router.navigate(['/admin/products']);
+    }
   }
 }
