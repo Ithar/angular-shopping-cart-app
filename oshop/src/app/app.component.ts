@@ -10,7 +10,7 @@ import { UserService } from './service/user.service';
 })
 export class AppComponent {
   
-  constructor(private authService : AuthService, private userService: UserService, router : Router) {
+  constructor(authService : AuthService, userService: UserService, router : Router) {
 
     authService.firebaseUser$.subscribe(user => {
       if (user) {
