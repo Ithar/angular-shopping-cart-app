@@ -10,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class AdminProductFormComponent implements OnInit {
 
   categories$;
-
-  constructor(private productService: ProductService, categoryService: CategoryService) { 
+  
+    constructor(private productService: ProductService, categoryService: CategoryService) { 
     this.categories$ = categoryService.getCategories();
   }
 

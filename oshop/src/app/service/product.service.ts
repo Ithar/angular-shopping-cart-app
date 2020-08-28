@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,9 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
   
-  constructor() { }
+  constructor(private db: AngularFireDatabase) { 
+
+  }
 
   save(product) {
-    
+    return this.db.list('/products').push(product)
+    .then(() => console.log('Product saved'));
   }
 }
