@@ -3,11 +3,10 @@ Shopping cart hosted on firebase with login and order mangement
 
 #### Features 
 - Single-page application 
-- Login 
-- User authentication 
-- Add to cart
-- View Orders
-- Product mangement
+- Login (via Google oauth2)
+- User authentication & routing 
+- Two way form binding
+- Data-tables listing page 
 
 ## 
 
@@ -15,7 +14,7 @@ Shopping cart hosted on firebase with login and order mangement
 
 Stack  | version |
 --- | --- |  
-*Frontend* | Angular 10
+*Frontend* | Angular 10.0.12
 *Node* | v12.18.1
 *Hosting* | firebase (8.9.0)
 *Build Tool* | Angular CLI
@@ -35,6 +34,7 @@ npm i --save @angular/fire
 npm i --save bootstrap
 ng add @ng-bootstrap/ng-bootstrap
 sudo npm i -g firebase-tools
+npm i --save angular-9-datatable
 ```
 
 ## Application Build/Components 

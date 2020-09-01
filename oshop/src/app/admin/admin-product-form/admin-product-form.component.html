@@ -90,13 +90,14 @@
     <!-- PREVIEW -->
     <div class="col-md-5">
         <div class="card" style="width: 28rem;">
-            <img class="card-img-top" [src]="image.value">
+            <img *ngIf="!image.value" class="card-img-top" src="../../../assets/images/preview.png">
+            <img *ngIf="image.value" class="card-img-top" [src]="image.value">
             <div class="card-body">
                 <h5 class="card-title">Car preview</h5>
                 <h6>{{ title.value }}</h6>
                 <p class="card-text">{{ description.value }}</p>
-                <p class="card-text"><b>Price:</b> {{ price.value | currency:'GBP':true}}</p>
-                <p class="card-text"><b>Category:</b> {{ category.value }} </p>
+                <p *ngIf="price.value"  class="card-text"><b>Price:</b> {{ price.value | currency:'GBP':true}}</p>
+                <p *ngIf="category.value"  class="card-text"><b>Category:</b> {{ category.value }} </p>
             </div>
         </div>
     </div>
