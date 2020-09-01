@@ -22,12 +22,9 @@ export class ProductService {
     return this.db.list('/products').snapshotChanges().pipe(
       map( actions => {
         return actions.map(a => {
-          const data = a.payload.val() as Product; 
-          const id = a.payload.key;
-          return {
-            id,
-            data
-          }
+          const product = a.payload.val() as Product; 
+          product.id = a.payload.key;; 
+          return product;
         })
       })
     ); 
