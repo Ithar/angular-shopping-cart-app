@@ -11,15 +11,26 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnDestroy {
 
+  allProducts: Product[];
   products: Product[] = [];
   subscription: Subscription;
 
   categories$;
+  selectedCategory: string;
 
-  constructor(productService: ProductService, categoryService: CategoryService) { 
-    this.subscription = productService.list().subscribe( p => this.products = p);
+  constructor(private productService: ProductService, categoryService: CategoryService) { 
+    this.subscription = productService.list().subscribe( p => {
+      this.allProducts = p;
+      this.products = p;
+    });
 
     this.categories$ = categoryService.list();
+  }
+
+  filter(category: string) {
+
+    this.selectedCategory = category;
+    this.products = this.productService.filterByCategory(category, this.allProducts);
   }
 
   ngOnDestroy(): void {

@@ -1,17 +1,25 @@
-
-
-
 <div class="row">
-
     <div class="col-3">
-        Categories
-        <span *ngFor="let c of categories | async">
-            {{c.name}}
-        </span>
+        <b>Categories:</b>
+        <div class="list-group">
+            <a  *ngFor="let c of categories$ | async" 
+                (click)="filter(c.name)" 
+                routerLink="/" 
+                [queryParams]="{ category: c.name}" 
+                [class.active]="c.name === selectedCategory" 
+                class="list-group-item list-group-item-action">
+                {{c.name}}
+            </a>
+
+            <a *ngIf="categories$ | async" (click)="filter('')" routerLink="/" class="list-group-item list-group-item-action">- RESET - </a>
+        </div>
     </div>
     <div class="col">
         <div class="row">
-            <ng-contaner *ngFor="let p of products ">
+            <ng-container *ngIf="products.length === 0">
+                <p>No cars found for this category</p>
+            </ng-container>     
+            <ng-contaner *ngFor="let p of products">
                 <div class="col">
                     <div class="card" style="width: 20rem;">
                         <img class="card-img-top" [src]="p.image" height="239px"> 

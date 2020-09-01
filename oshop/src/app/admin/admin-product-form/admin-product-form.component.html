@@ -96,7 +96,7 @@
                 <h5 class="card-title">Car preview</h5>
                 <h6>{{ title.value }}</h6>
                 <p class="card-text">{{ description.value }}</p>
-                <p *ngIf="price.value"  class="card-text"><b>Price:</b> {{ price.value | currency:'GBP':true}}</p>
+                <p *ngIf="price.value"  class="card-text"><b>Price:</b> {{ price.value | currency:'GBP':'symbol'}}</p>
                 <p *ngIf="category.value"  class="card-text"><b>Category:</b> {{ category.value }} </p>
             </div>
         </div>
