@@ -7,6 +7,7 @@ Shopping cart hosted on firebase with login and order mangement
 - User authentication & routing 
 - Two way form binding
 - Data-tables listing page 
+- Multiple views component
 
 ## 
 

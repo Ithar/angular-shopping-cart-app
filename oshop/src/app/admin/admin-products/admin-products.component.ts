@@ -10,32 +10,31 @@ import { Component, OnDestroy } from '@angular/core';
 })
 export class AdminProductsComponent implements OnDestroy {
 
+  allProducts: Product[];
   products: Product[];
-  filteredProducts: Product[];
   subscription: Subscription
 
   constructor(productService: ProductService) { 
     
     this.subscription = productService.list().subscribe(p => 
       { 
-        this.products = p;
-       this.filteredProducts = this.products;
+        this.allProducts = p;
+       this.products = this.allProducts;
       });   
   }
 
   search(searchTerm: string) {
 
     if (searchTerm) {
-      this.filteredProducts = this.products.filter(p => 
+      this.products = this.allProducts.filter(p => 
         p.title.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
     } else {
-      this.filteredProducts = this.products;
+      this.products = this.allProducts;
     }
     
   }
 
   ngOnDestroy() {
-    console.log('unsubscribe called ... ')
     this.subscription.unsubscribe();  
   }
 }
