@@ -1,4 +1,3 @@
-import { Product } from './../../model/product';
 import { ProductService } from './../../service/product.service';
 import { CategoryService } from './../../service/category.service';
 import { Component } from '@angular/core';
@@ -40,7 +39,7 @@ export class AdminProductFormComponent {
   }
 
   getCategories(categoryService: CategoryService) {
-    this.categories$ = categoryService.getCategories();
+    this.categories$ = categoryService.list();
   }
 
   save(product) {

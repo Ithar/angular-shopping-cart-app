@@ -44,5 +44,25 @@ export class ProductService {
     return this.db.object('/products/' + productId).remove()
     .then(() => console.log('DB: Deleted' + productId));
   }
+
+  filterByTitle(title: string, products: Product[]) {
+
+    if (title) {
+      return  products.filter(p => 
+        p.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()))
+    } else {
+      return products; 
+    }
+  }
   
+  filterByCategory(category: string, products: Product[]) {
+
+    if (category) {
+      return  products.filter(p => 
+        p.category.toLocaleLowerCase().includes(category.toLocaleLowerCase()))
+    } else {
+      return products; 
+    }
+  }
+
 }

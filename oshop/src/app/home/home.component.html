@@ -1,1 +1,33 @@
-<p>home works!</p>
+
+
+
+<div class="row">
+
+    <div class="col-3">
+        Categories
+        <span *ngFor="let c of categories | async">
+            {{c.name}}
+        </span>
+    </div>
+    <div class="col">
+        <div class="row">
+            <ng-contaner *ngFor="let p of products ">
+                <div class="col">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" [src]="p.image" height="239px"> 
+                        <div class="card-body">
+                            <h4>{{ p.title }}</h4>
+                            <p class="card-text"><b>Category:</b> {{ p.category}} </p>
+                            <p class="card-text"><i>{{ p.description}}</i></p>
+                            <p  class="card-text"><b>Price:</b> {{ p.price | currency:'GBP':'symbol'}}</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+            </ng-contaner>
+        </div>   
+    </div>
+</div>
+
+

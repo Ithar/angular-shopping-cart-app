@@ -1,5 +1,5 @@
 import { Product } from './../../model/product';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ProductService } from './../../service/product.service';
 import { Component, OnDestroy } from '@angular/core';
 
@@ -14,7 +14,7 @@ export class AdminProductsComponent implements OnDestroy {
   products: Product[];
   subscription: Subscription
 
-  constructor(productService: ProductService) { 
+  constructor(private productService: ProductService) { 
     
     this.subscription = productService.list().subscribe(p => 
       { 
@@ -24,14 +24,7 @@ export class AdminProductsComponent implements OnDestroy {
   }
 
   search(searchTerm: string) {
-
-    if (searchTerm) {
-      this.products = this.allProducts.filter(p => 
-        p.title.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
-    } else {
-      this.products = this.allProducts;
-    }
-    
+    this.products = this.productService.filterByTitle(searchTerm, this.allProducts);   
   }
 
   ngOnDestroy() {
