@@ -37,6 +37,14 @@ export class HomeComponent implements OnDestroy {
   addToCart(product: Product) {
     this.cartService.addProduct(product);
   }
+  
+  removeFromCart(product: Product) {
+    this.cartService.removeProduct(product);
+  }
+
+  getProductQuantity(productId: string): number {
+    return this.cartService.getProductQuantity(productId);
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

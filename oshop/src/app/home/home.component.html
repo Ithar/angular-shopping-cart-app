@@ -30,7 +30,19 @@
                             <p  class="card-text"><b>Price:</b> {{ p.price | currency:'GBP':'symbol'}}</p>
                         </div>
                         <div class="card-footer">
-                            <button (click)="addToCart(p)" class="btn btn-primary btn-block">Add to Cart</button>
+                            <button *ngIf="getProductQuantity(p.id) === 0; else updateQuantity" (click)="addToCart(p)" class="btn btn-primary btn-block">Add to Cart</button>
+                            <ng-template #updateQuantity>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <button (click)="removeFromCart(p)" class="btn btn-secondary btn-block">-</button>
+                                    </div>
+                                    <div class="col text-center">{{ getProductQuantity(p.id) }}</div>
+                                    <div class="col-3">
+                                        <button (click)="addToCart(p)" class="btn btn-secondary btn-block">+</button>
+                                    </div>
+                                </div>
+                                
+                            </ng-template>
                         </div>    
                     </div>
                     <br/>
