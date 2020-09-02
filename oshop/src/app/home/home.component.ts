@@ -1,3 +1,4 @@
+import { CartService } from './../service/cart.service';
 import { CategoryService } from './../service/category.service';
 import { ProductService } from './../service/product.service';
 import { Product } from './../model/product';
@@ -18,7 +19,7 @@ export class HomeComponent implements OnDestroy {
   categories$;
   selectedCategory: string;
 
-  constructor(private productService: ProductService, categoryService: CategoryService) { 
+  constructor(private productService: ProductService, categoryService: CategoryService, private cartService: CartService) { 
     this.subscription = productService.list().subscribe( p => {
       this.allProducts = p;
       this.products = p;
@@ -34,7 +35,7 @@ export class HomeComponent implements OnDestroy {
   }
 
   addToCart(product: Product) {
-    console.log('adding >>> :' + product.id)
+    this.cartService.addProduct(product);
   }
 
   ngOnDestroy(): void {

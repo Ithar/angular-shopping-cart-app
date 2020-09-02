@@ -1,10 +1,12 @@
 # angular-shopping-cart-app
-Shopping cart hosted on firebase with login and order mangement
+Shopping cart hosted on firebase with login and order mangement.
 
 #### Features 
 - Single-page application 
+- Firebase database 
 - Login (via Google oauth2)
 - User authentication & routing 
+- Protected admin screens
 - Two way form binding
 - Data-tables listing page 
 - Multiple views component
@@ -61,6 +63,7 @@ ng g s service/user
 ng g s service/admin-auth-guard
 ng g s service/category
 ng g s service/product
+ng g s service/cart
 ```
 
 ## Application Run
