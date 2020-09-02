@@ -8,6 +8,7 @@ Shopping cart hosted on firebase with login and order mangement
 - Two way form binding
 - Data-tables listing page 
 - Multiple views component
+- Local storage shopping cart
 
 ## 
 

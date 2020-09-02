@@ -28,8 +28,10 @@
                             <p class="card-text"><b>Category:</b> {{ p.category}} </p>
                             <p class="card-text"><i>{{ p.description}}</i></p>
                             <p  class="card-text"><b>Price:</b> {{ p.price | currency:'GBP':'symbol'}}</p>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
+                        <div class="card-footer">
+                            <button (click)="addToCart(p)" class="btn btn-primary btn-block">Add to Cart</button>
+                        </div>    
                     </div>
                     <br/>
                 </div>
