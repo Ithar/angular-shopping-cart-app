@@ -1,17 +1,16 @@
-import { Observable, of} from 'rxjs';
+import { BehaviorSubject} from 'rxjs';
 import { CartItem } from './../model/cart-item';
 import { Product } from './../model/product';
 import { Cart } from './../model/cart';
 import { Injectable } from '@angular/core';
-import { take, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  cart: Cart;
-  cart$: Observable<Cart>;
+  private cart: Cart;
+  private _cart: BehaviorSubject<Cart>  = new BehaviorSubject(new Cart());
 
   private LOCAL_STORAGE_CART_KEY: string = 'OSHOP-CART';
 
@@ -31,45 +30,29 @@ export class CartService {
      }
 
     this.cart = cart;
-    this.cart$ = of(cart);
-    return this.cart$;
+    this._cart.next(this.cart);
+    return this._cart.asObservable();
   }
 
   private saveCart() {
-    console.log('SAVE');
     localStorage.setItem(this.LOCAL_STORAGE_CART_KEY, JSON.stringify(this.cart)); 
   }
 
   deleteCart() {
-    console.log('DELETE');
     localStorage.removeItem(this.LOCAL_STORAGE_CART_KEY);  
   }
 
-  async addProduct(product: Product) {
+  private saveAndEmitCart() {
+    this.calculateTotalQuantity();
+    this.calculateTotalPrice();
+    this._cart.next(this.cart);
+    this.saveCart();
+  } 
+
+  addProduct(product: Product) {
 
     console.log('ADD PRODUCT');
     
-    // this.cart$.pipe(take(1), 
-    //   map(c => {
-    //     let cartItems: CartItem[] = c.cartItems;
-
-    //     let index = cartItems.findIndex(i => i.productId === product.id);
-    //     if (index === -1) {
-    //       this.addNewProduct(product, cartItems);
-    //     } else {
-    //       this.updateExistingProduct(index, cartItems);
-    //     }
-
-    //     c.totalQuantity = 99;
-    //     this.cart$ = of(c);
-            
-    //     this.saveCart();
-    //   })
-    // )
-
-
-
-
     let cartItems: CartItem[] = this.cart.cartItems;
 
     let index = cartItems.findIndex(i => i.productId === product.id);
@@ -79,7 +62,7 @@ export class CartService {
       this.updateExistingProduct(index, cartItems);
     }
 
-    this.saveCart();
+    this.saveAndEmitCart();
   }
 
   private addNewProduct(product: Product, cartItems: CartItem[]): CartItem[] {
@@ -113,33 +96,7 @@ export class CartService {
       cartItems[index] = cartItem;
     }
 
-    this.saveCart();
-  }
-
-  private calculateTotalPrice() {
-    let total: number = 0;
-    
-    this.cart.cartItems.forEach(item => {
-      total += (item.price * item.quantity);
-    });
-    
-    this.cart.totalPrice = total;
-  }
-
-  calculateTotalQuantity(cart: Cart): number {
-
-    let quantity = 0;
-
-    console.log('TOP calculateTotalQuantity()');
-
-    cart.cartItems.forEach(item => {
-      quantity += (item.quantity);
-    });
-
-    this.cart.totalQuantity = quantity;
-    console.log('calculateTotalQuantity()' +  quantity);
-
-    return quantity;
+    this.saveAndEmitCart();
   }
 
   getProductQuantity(productId: string): number {
@@ -149,7 +106,28 @@ export class CartService {
     let index = cartItems.findIndex(i => i.productId === productId);
 
     return (index === -1) ? 0 : cartItems[index].quantity;
+  }
+
+  private calculateTotalPrice() {
     
+    let total: number = 0;
+    
+    this.cart.cartItems.forEach(item => {
+      total += (item.price * item.quantity);
+    });
+    
+    this.cart.totalPrice = total;
+  }
+
+  private calculateTotalQuantity() {
+
+    let quantity = 0;
+
+    this.cart.cartItems.forEach(item => {
+      quantity += (item.quantity);
+    });
+
+    this.cart.totalQuantity = quantity;
   }
 
 }

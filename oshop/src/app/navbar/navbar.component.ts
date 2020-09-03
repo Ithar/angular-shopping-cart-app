@@ -22,18 +22,11 @@ export class NavbarComponent implements OnInit {
   }
 
   async ngOnInit() {
-    console.log('************** A ************ ')
     let cart$: Observable<Cart> = await this.cartService.getOrCreateCart();
     cart$.subscribe(cart => {
-
-        console.log('************** B ************ ' + cart.totalQuantity + ' OR :' + this.cartService.calculateTotalQuantity(cart));
-
         this.cartItemsCount = cart.totalQuantity;
-    });
-    
-     console.log('************** C ************');
+    });     
   }
-  
 
   logout() {
     this.auth.logout();

@@ -28,7 +28,10 @@
           </li>
         </ng-template>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shopping-cart">Cart {{ cartItemsCount }} </a>
+          <a class="nav-link" routerLink="/shopping-cart">
+            <span>Cart </span>
+            <span class="badge badge-pill badge-warning">{{ cartItemsCount }}</span>
+          </a>
         </li>
       </ul>
     </div>

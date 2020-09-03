@@ -11,6 +11,7 @@ Shopping cart hosted on firebase with login and order mangement.
 - Data-tables listing page 
 - Multiple views component
 - Local storage shopping cart
+- Dynamic basket tracking
 
 ## 
 
