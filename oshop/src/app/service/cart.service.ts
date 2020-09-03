@@ -10,7 +10,8 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
   private cart: Cart;
-  private _cart: BehaviorSubject<Cart>  = new BehaviorSubject(new Cart());
+  private _cart: BehaviorSubject<Cart>  = new BehaviorSubject(new Cart([]));
+  
 
   private LOCAL_STORAGE_CART_KEY: string = 'OSHOP-CART';
 
@@ -18,16 +19,17 @@ export class CartService {
 
   async getOrCreateCart()  {
 
-     let cart: Cart;
-     let cartString = localStorage.getItem(this.LOCAL_STORAGE_CART_KEY);   
+    let cart: Cart;
+    let cartString = localStorage.getItem(this.LOCAL_STORAGE_CART_KEY);   
 
-     console.log('CREATING CART: '+ cartString)
+    console.log('CREATING CART: '+ cartString)
   
-     if (cartString === null) {
-       cart = new Cart();
-     } else {
-       cart = JSON.parse(cartString);
-     }
+    if (cartString === null) {
+      cart = new Cart([]);
+    } else {
+      let cartJson: Cart = JSON.parse(cartString);
+      cart = new Cart(cartJson.cartItems);
+    }
 
     this.cart = cart;
     this._cart.next(this.cart);
@@ -43,8 +45,6 @@ export class CartService {
   }
 
   private saveAndEmitCart() {
-    this.calculateTotalQuantity();
-    this.calculateTotalPrice();
     this._cart.next(this.cart);
     this.saveCart();
   } 
@@ -101,33 +101,10 @@ export class CartService {
 
   getProductQuantity(productId: string): number {
 
-    let cart = (this.cart) ? this.cart : this.cart;
-    let cartItems: CartItem[] = cart.cartItems;
+    let cartItems: CartItem[] = this.cart.cartItems;
     let index = cartItems.findIndex(i => i.productId === productId);
 
     return (index === -1) ? 0 : cartItems[index].quantity;
-  }
-
-  private calculateTotalPrice() {
-    
-    let total: number = 0;
-    
-    this.cart.cartItems.forEach(item => {
-      total += (item.price * item.quantity);
-    });
-    
-    this.cart.totalPrice = total;
-  }
-
-  private calculateTotalQuantity() {
-
-    let quantity = 0;
-
-    this.cart.cartItems.forEach(item => {
-      quantity += (item.quantity);
-    });
-
-    this.cart.totalQuantity = quantity;
   }
 
 }

@@ -30,7 +30,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/shopping-cart">
             <span>Cart </span>
-            <span class="badge badge-pill badge-warning">{{ cartItemsCount }}</span>
+            <span class="badge badge-pill badge-warning" *ngIf="cart$ | async as cart">{{ cart.totalQuantity }} </span>
           </a>
         </li>
       </ul>
