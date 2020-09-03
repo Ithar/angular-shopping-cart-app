@@ -45,6 +45,10 @@ export class ProductService {
     .then(() => console.log('DB: Deleted' + productId));
   }
 
+  getById(id: string, products: Product[]): Product {
+    return  products.filter(p => p.id.includes(id))[0];
+  }
+
   filterByTitle(title: string, products: Product[]) {
 
     if (title) {

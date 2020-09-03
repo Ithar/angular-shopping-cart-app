@@ -1,1 +1,27 @@
-<p>shopping-cart works!</p>
+<h1> Shopping Cart </h1>
+
+<ng-container *ngIf="cart">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Car</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cartItem of cart.cartItems">
+                <td>{{ cartItem.product.title }}</td>
+                <td>{{ cartItem.quantity }}</td>
+                <td>{{ cartItem.product.price  * cartItem.quantity | currency:'GBP':'symbol' }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{ cart.totalPrice | currency:'GBP':'symbol' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>

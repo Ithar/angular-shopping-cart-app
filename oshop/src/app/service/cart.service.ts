@@ -1,4 +1,4 @@
-import { BehaviorSubject} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CartItem } from './../model/cart-item';
 import { Product } from './../model/product';
 import { Cart } from './../model/cart';
@@ -12,7 +12,6 @@ export class CartService {
   private cart: Cart;
   private _cart: BehaviorSubject<Cart>  = new BehaviorSubject(new Cart([]));
   
-
   private LOCAL_STORAGE_CART_KEY: string = 'OSHOP-CART';
 
   constructor() { }
@@ -36,7 +35,16 @@ export class CartService {
     return this._cart.asObservable();
   }
 
+  getCart(): Observable<Cart> {
+    return this._cart.asObservable();  
+  }
+
   private saveCart() {
+
+    this.cart.cartItems.forEach(item => {
+      item.product = undefined;
+    })
+
     localStorage.setItem(this.LOCAL_STORAGE_CART_KEY, JSON.stringify(this.cart)); 
   }
 
