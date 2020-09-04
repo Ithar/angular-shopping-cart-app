@@ -50,8 +50,7 @@ ng g c navbar
 ng g c home
 ng g c products
 ng g c shopping-cart
-ng g c checkout
-ng g c order-success
+ng g c place-order
 ng g c login
 ng g c my-orders
 ng g c admin/admin-products

@@ -30,10 +30,6 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
-  checkout() {
-
-  }
-
   clear() {
     this.cartService.deleteCart();
     this.isCartEmpty= true;
