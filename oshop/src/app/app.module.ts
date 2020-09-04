@@ -11,7 +11,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
-// Gards
+// Guards
 import { AdminAuthGuard } from './service/admin-auth-guard.service';
 import { AuthGuard } from './service/auth-guard.service';
 
@@ -19,7 +19,6 @@ import { AuthGuard } from './service/auth-guard.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
@@ -34,7 +33,6 @@ import { AdminProductFormComponent } from './admin/admin-product-form/admin-prod
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ProductsComponent,
     ShoppingCartComponent,
     CheckoutComponent,
     LoginComponent,
@@ -55,7 +53,6 @@ import { AdminProductFormComponent } from './admin/admin-product-form/admin-prod
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
 
       // logged-in
