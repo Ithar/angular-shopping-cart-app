@@ -12,6 +12,7 @@ Shopping cart hosted on firebase with login and order mangement.
 - Multiple views component
 - Local storage shopping cart
 - Dynamic basket tracking
+- Shared order item component
 
 ## 
 
@@ -52,7 +53,7 @@ ng g c home
 ng g c login
 ng g c shopping-cart
 ng g c place-order
-ng g c order
+ng g c order-item
 ng g c my-orders
 ng g c admin/admin-products
 ng g c admin/admin-product-form

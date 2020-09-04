@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let item of order.items" class="list-group-item">   
+                <div class="float-left">{{ item.quantity }} x  {{ item.product.title }}</div>
+                <div class="float-right">
+                    <span> {{ item.product.price | currency:'GBP':'symbol' }} </span>
+                </div>
+            </li>
+            <li class="list-group-item font-weight-bold" >
+                <div class="float-right">{{ order.totalPrice | currency:'GBP':'symbol' }}</div>
+            </li>   
+        </ul>
+    </div>
+</div>

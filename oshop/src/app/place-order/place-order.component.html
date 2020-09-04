@@ -14,6 +14,15 @@
 <div *ngIf="order">
     <div class="alert alert-success">
         <p>Your order has been placed successfully.</p>
-        <p>Tracking Id: <b>{{ order.orderId }}</b></p>
+        <p>Order Id: <b>{{ order.orderId }}</b></p>
     </div>
+
+    <div class="row">
+        <div class="col-6 pr-4">
+            <h4 class="card-title"> Order Summary</h4>
+            <p class="card-text">You have <b>{{ order.totalQuantity  }}</b> items in your cart.</p>      
+            <app-order-item [order]="order" ></app-order-item>
+        </div>
+    </div>
+    
 </div>
