@@ -49,7 +49,8 @@ export class CartService {
   }
 
   deleteCart() {
-    localStorage.removeItem(this.LOCAL_STORAGE_CART_KEY);  
+    this._cart.next(new Cart([]));
+    localStorage.removeItem(this.LOCAL_STORAGE_CART_KEY);
   }
 
   private saveAndEmitCart() {

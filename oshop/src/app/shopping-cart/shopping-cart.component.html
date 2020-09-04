@@ -1,27 +1,43 @@
 <h1> Shopping Cart </h1>
 
-<ng-container *ngIf="cart">
+<div *ngIf="cart" class="row col-8">
+
+    <div class="mt-2 mb-2">You have a total of <b>{{ cart.totalQuantity }}</b> items.</div>
 
     <table class="table">
         <thead>
             <tr>
+                <th></th>
                 <th>Car</th>
-                <th>Quantity</th>
-                <th>Price</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-right">Price</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let cartItem of cart.cartItems">
+                <td><div [style.backgroundImage]="'url(' + cartItem.product.image + ')'" class="checkout-product-thumbnail"></div> </td>
                 <td>{{ cartItem.product.title }}</td>
-                <td>{{ cartItem.quantity }}</td>
-                <td>{{ cartItem.product.price  * cartItem.quantity | currency:'GBP':'symbol' }}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>{{ cart.totalPrice | currency:'GBP':'symbol' }}</td>
+                <td class="text-center">{{ cartItem.quantity }}</td>
+                <td class="text-right">{{ cartItem.product.price  * cartItem.quantity | currency:'GBP':'symbol' }}</td>
             </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th class="text-right">{{ cart.totalPrice | currency:'GBP':'symbol' }}</th>
+            </tr>
+        </tfoot>
     </table>
 
-</ng-container>
+    <div class="row col-8">
+        <button (click)="checkout()" class="btn btn-success btn-sm mr-2">Checkout</button>
+        <button (click)="clear()" class="btn btn-danger btn-sm">Clear Cart</button>
+
+        <div *ngIf="showClearMsg" class="alert alert-secondary mt-4" role="alert">
+            Cart has been cleared ... return to <b><a routerLink="/">home</a></b>.
+        </div>
+    </div>
+
+</div>

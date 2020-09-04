@@ -11,10 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class ShoppingCartComponent implements OnInit {
 
   cart: Cart;
+  showClearMsg: boolean;
 
   constructor(private cartService: CartService, private productService: ProductService) { }
 
   ngOnInit(): void {
+
+    this.showClearMsg= false;
 
     this.productService.list().subscribe(products => {
       this.cartService.getCart().subscribe(cart => {
@@ -24,5 +27,15 @@ export class ShoppingCartComponent implements OnInit {
         this.cart = cart;
       });
     });
+  }
+
+  checkout() {
+
+  }
+
+  clear() {
+    this.cart = undefined;
+    this.cartService.deleteCart();
+    this.showClearMsg= true;
   }
 }
