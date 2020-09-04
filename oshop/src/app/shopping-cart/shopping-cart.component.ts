@@ -11,13 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class ShoppingCartComponent implements OnInit {
 
   cart: Cart;
-  showClearMsg: boolean;
+  isCartEmpty: boolean = true;
 
   constructor(private cartService: CartService, private productService: ProductService) { }
 
   ngOnInit(): void {
 
-    this.showClearMsg= false;
+    this.isCartEmpty= false;
 
     this.productService.list().subscribe(products => {
       this.cartService.getCart().subscribe(cart => {
@@ -25,6 +25,7 @@ export class ShoppingCartComponent implements OnInit {
           item.product = this.productService.getById(item.productId, products);
         });
         this.cart = cart;
+        this.isCartEmpty = cart.cartItems.length === 0  ? true : false ;
       });
     });
   }
@@ -36,6 +37,6 @@ export class ShoppingCartComponent implements OnInit {
   clear() {
     this.cart = undefined;
     this.cartService.deleteCart();
-    this.showClearMsg= true;
+    this.isCartEmpty= true;
   }
 }
