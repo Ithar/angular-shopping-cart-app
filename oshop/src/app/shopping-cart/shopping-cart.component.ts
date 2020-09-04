@@ -35,7 +35,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   clear() {
-    this.cart = undefined;
     this.cartService.deleteCart();
     this.isCartEmpty= true;
   }
