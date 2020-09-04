@@ -35,7 +35,7 @@ export class CartService {
     return this._cart.asObservable();
   }
 
-  getCart(): Observable<Cart> {
+  getCartObservable(): Observable<Cart> {
     return this._cart.asObservable();  
   }
 

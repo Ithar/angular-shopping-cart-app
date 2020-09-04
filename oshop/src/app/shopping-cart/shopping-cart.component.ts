@@ -20,7 +20,7 @@ export class ShoppingCartComponent implements OnInit {
     this.isCartEmpty= false;
 
     this.productService.list().subscribe(products => {
-      this.cartService.getCart().subscribe(cart => {
+      this.cartService.getCartObservable().subscribe(cart => {
         cart.cartItems.forEach(item => {
           item.product = this.productService.getById(item.productId, products);
         });
