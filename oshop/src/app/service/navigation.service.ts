@@ -18,7 +18,7 @@ export class NavigationService  {
     this.currentUrl = url;
 
     if (this.currentUrl === '/login' && this.previousUrl === '/shopping-cart') {
-      localStorage.setItem(this.RETURN_URL, '/checkout');   
+      localStorage.setItem(this.RETURN_URL, '/place-order');   
     } 
   }
 
