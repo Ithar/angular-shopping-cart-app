@@ -30,7 +30,7 @@ export class ProductService {
     ); 
   }
 
-  save(product) {
+  save(product: Product) {
     return this.db.list('/products').push(product)
     .then(() => console.log('DB: saved'));
   }

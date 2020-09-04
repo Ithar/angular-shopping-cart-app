@@ -1,4 +1,6 @@
 import { Cart } from './cart';
+import { v4 as uuidv4 } from 'uuid';
+
 export class Order {
         
     orderId: string;
@@ -6,9 +8,9 @@ export class Order {
     orderDate: number;
     items: any[];
 
-    constructor(orderId: string, userId: string, cart: Cart) {
+    constructor(userId: string, cart: Cart) {
         
-        this.orderId = orderId;
+        this.orderId = uuidv4();
         this.userId = userId;
         this.orderDate = new Date().getTime();
 

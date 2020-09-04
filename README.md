@@ -40,6 +40,7 @@ npm i --save bootstrap
 ng add @ng-bootstrap/ng-bootstrap
 sudo npm i -g firebase-tools
 npm i --save angular-9-datatable
+npm i --save uuid
 ```
 
 ## Application Build/Components 

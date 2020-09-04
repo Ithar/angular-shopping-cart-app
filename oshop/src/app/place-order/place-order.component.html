@@ -1,1 +1,19 @@
-<p>place-order works!</p>
+<h2>Order Confirmation</h2>
+
+<!-- Loader -->
+<div *ngIf="isLoading">
+    <p class="text-center">Porcessing order please wait ...</p>
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border text-success" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+  
+<!-- Order confirmation -->
+<div *ngIf="order">
+    <div class="alert alert-success">
+        <p>Your order has been placed successfully.</p>
+        <p>Tracking Id: <b>{{ order.orderId }}</b></p>
+    </div>
+</div>
