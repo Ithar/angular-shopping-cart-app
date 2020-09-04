@@ -65,6 +65,7 @@ ng g s service/admin-auth-guard
 ng g s service/category
 ng g s service/product
 ng g s service/cart
+ng g s service/navigation
 ```
 
 ## Application Run

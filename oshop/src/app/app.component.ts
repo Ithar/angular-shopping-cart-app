@@ -1,7 +1,9 @@
+import { NavigationService } from './service/navigation.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './service/auth.service';
 import { UserService } from './service/user.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +12,16 @@ import { UserService } from './service/user.service';
 })
 export class AppComponent {
   
-  constructor(authService : AuthService, userService: UserService, router : Router) {
+  constructor(authService : AuthService, userService: UserService, router: Router,location: Location, navigationService: NavigationService)  {
+
+    location.onUrlChange(url => navigationService.urlChange(url));
 
     authService.firebaseUser$.subscribe(user => {
       if (user) {
         userService.save(user);
-        router.navigateByUrl('/');  
+        router.navigateByUrl(navigationService.getReturnUrl());  
       }
     });
-
   }
 
 }
