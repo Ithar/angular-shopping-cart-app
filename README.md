@@ -8,7 +8,6 @@ Shopping cart hosted on firebase with login and order mangement.
 - User authentication & routing 
 - Protected admin screens
 - Two way form binding
-- Data-tables listing page 
 - Multiple views component
 - Local storage shopping cart
 - Dynamic basket tracking
@@ -38,10 +37,9 @@ Stack  | version |
 npm i --save firebase
 npm i --save @angular/fire
 npm i --save bootstrap
-ng add @ng-bootstrap/ng-bootstrap
-sudo npm i -g firebase-tools
-npm i --save angular-9-datatable
 npm i --save uuid
+sudo npm i -g firebase-tools
+ng add @ng-bootstrap/ng-bootstrap
 ```
 
 ## Application Build/Components 
@@ -87,7 +85,12 @@ firebase depoly
 
 ## Application URL
 LocaL : http://localhost:4200
+
 Hosting: https://oshop-angular-v1.web.app
+
 Console: https://console.firebase.google.com/project/oshop-angular-v1/overview
 
 ## Further enhancements 
+- Registration page
+- Other Social sign-in options
+- Datatables listing page

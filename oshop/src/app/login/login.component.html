@@ -1,8 +1,39 @@
 
-<div class="sign-in-container">
-    <h2>Sign in Options</h2>
-    <hr/>
-    <button (click)='login(1)' class="btn btn-primary">
-        <img src="../../assets/images/sign-in-google.jpg" width="30px"> Sign in with Goolge
-    </button>
+<div class="sign-in-container">    
+
+    <!-- Standard Login -->
+    <div class="text-center pr-5">
+        <h2>Sign-in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <br/>
+        <button class="btn btn-lg btn-primary btn-block" type="button" disabled>Sign in</button>
+        <hr/>
+    </div>
+   
+    <!-- Socail Login -->
+    
+    <div class="pr-5">
+        <p class="text-center">Sign-in via socail </p>
+        
+        <div class="pb-2 text-left">
+            <button (click)='login(1)' class="btn btn-block social-btn-google">
+                <img src="../../assets/images/sign-in-google.jpg" class="socail-sign-in-img">
+            </button>
+        </div>
+
+        <div class="pb-2">
+            <button class="btn btn-primary btn-block social-btn-fb" disabled>
+                <img src="../../assets/images/sign-in-fb.png" class="socail-sign-in-img">
+            </button>
+        </div>
+        
+        <button class="btn btn-primary btn-block social-btn-twitter" disabled>
+            <img src="../../assets/images/sign-in-twitter.png" class="socail-sign-in-img">
+        </button>
+
+        <p class="mt-4"><i>* Due to API changes currently only Google sign-in is avialable.</i></p>
+    </div>
 </div>
