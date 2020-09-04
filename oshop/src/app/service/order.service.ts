@@ -1,8 +1,10 @@
+import { Observable } from 'rxjs';
 import { CartService } from './cart.service';
 import { Order } from './../model/order';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Cart } from './../model/cart';
 import { Injectable } from '@angular/core';
+import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +25,8 @@ export class OrderService {
     return order;
   }
 
+  getOrdersByUserId(user: User): Observable<any> {   
+    return this.db.list('/orders', 
+      ref => ref.orderByChild('userId').equalTo(user.uid)).valueChanges();
+  }
 }

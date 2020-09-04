@@ -1,4 +1,7 @@
+import { AuthService } from './../service/auth.service';
+import { OrderService } from './../service/order.service';
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-my-orders',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyOrdersComponent implements OnInit {
 
-  constructor() { }
+  orders$;
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService, private oderService: OrderService) { 
+    
   }
 
+   ngOnInit(): void {
+    
+    this.orders$ = this.authService.firebaseUser$.pipe(
+      switchMap(user => this.oderService.getOrdersByUserId(user))
+    );
+  }
 }

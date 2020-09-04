@@ -1,6 +1,7 @@
 import { CartItem } from './cart-item';
 import { Cart } from './cart';
 import { v4 as uuidv4 } from 'uuid';
+import { Optional } from '@angular/core';
 
 export class Order {
         
