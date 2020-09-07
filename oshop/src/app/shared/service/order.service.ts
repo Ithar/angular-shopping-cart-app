@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
 import { CartService } from './cart.service';
-import { Order } from './../model/order';
+import { Order } from '../model/order';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Cart } from './../model/cart';
+import { Cart } from '../model/cart';
 import { Injectable } from '@angular/core';
 import { User } from 'firebase';
 

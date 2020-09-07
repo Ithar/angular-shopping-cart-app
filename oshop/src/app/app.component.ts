@@ -1,8 +1,8 @@
-import { NavigationService } from './service/navigation.service';
+import { NavigationService } from './shared/service/navigation.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './service/auth.service';
-import { UserService } from './service/user.service';
+import { AuthService } from './shared/service/auth.service';
+import { UserService } from './shared/service/user.service';
 import {Location} from '@angular/common';
 
 @Component({

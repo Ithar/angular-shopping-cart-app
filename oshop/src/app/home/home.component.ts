@@ -1,7 +1,7 @@
-import { CartService } from './../service/cart.service';
-import { CategoryService } from './../service/category.service';
-import { ProductService } from './../service/product.service';
-import { Product } from './../model/product';
+import { CartService } from '../shared/service/cart.service';
+import { CategoryService } from '../shared/service/category.service';
+import { ProductService } from '../shared/service/product.service';
+import { Product } from '../shared/model/product';
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 

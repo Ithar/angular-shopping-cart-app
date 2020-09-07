@@ -1,4 +1,4 @@
-import { Order } from './../model/order';
+import { Order } from '../shared/model/order';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

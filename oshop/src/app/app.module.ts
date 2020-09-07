@@ -12,8 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
 // Guards
-import { AdminAuthGuard } from './service/admin-auth-guard.service';
-import { AuthGuard } from './service/auth-guard.service';
+import { AdminAuthGuard } from './shared/service/admin-auth-guard.service';
+import { AuthGuard } from './shared/service/auth-guard.service';
 
 // Component
 import { AppComponent } from './app.component';

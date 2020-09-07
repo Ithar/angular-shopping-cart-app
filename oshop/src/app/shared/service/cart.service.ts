@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CartItem } from './../model/cart-item';
-import { Product } from './../model/product';
-import { Cart } from './../model/cart';
+import { CartItem } from '../model/cart-item';
+import { Product } from '../model/product';
+import { Cart } from '../model/cart';
 import { Injectable } from '@angular/core';
 
 @Injectable({

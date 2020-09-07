@@ -1,8 +1,8 @@
-import { Order } from './../model/order';
-import { AuthService } from './../service/auth.service';
-import { OrderService } from './../service/order.service';
-import { Cart } from './../model/cart';
-import { CartService } from './../service/cart.service';
+import { Order } from '../shared/model/order';
+import { AuthService } from '../shared/service/auth.service';
+import { OrderService } from '../shared/service/order.service';
+import { Cart } from '../shared/model/cart';
+import { CartService } from '../shared/service/cart.service';
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 

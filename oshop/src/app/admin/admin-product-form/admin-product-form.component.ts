@@ -1,5 +1,5 @@
-import { ProductService } from './../../service/product.service';
-import { CategoryService } from './../../service/category.service';
+import { ProductService } from '../../shared/service/product.service';
+import { CategoryService } from '../../shared/service/category.service';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
