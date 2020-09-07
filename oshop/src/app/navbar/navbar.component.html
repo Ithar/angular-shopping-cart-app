@@ -1,4 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">  
+
+  <div class="container">
+
   <a class="navbar-brand" routerLink="/">
     <img src="../../assets/images/angular.png" width="50px" height="50px" />
   </a>
@@ -6,7 +9,19 @@
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- shopping cart -->
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shopping-cart">
+            <i class="fas fa-shopping-cart mr-2"></i>
+            <span class="badge badge-pill badge-warning" *ngIf="cart$ | async as cart">{{ cart.totalQuantity }} </span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Menu items  -->
+      <ul class="navbar-nav">
         <li *ngIf="appUser as user; else anonymousUser" ngbDropdown class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ user.name }}
@@ -27,12 +42,8 @@
             <a class="nav-link" routerLink="/login">Login</a>
           </li>
         </ng-template>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/shopping-cart">
-            <i class="fas fa-shopping-cart mr-2"></i>
-            <span class="badge badge-pill badge-warning" *ngIf="cart$ | async as cart">{{ cart.totalQuantity }} </span>
-          </a>
-        </li>
       </ul>
+
     </div>
+  </div>
   </nav>
