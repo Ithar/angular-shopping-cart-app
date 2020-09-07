@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
 // Guards
-import { AdminAuthGuard } from './shared/service/admin-auth-guard.service';
+import { AdminAuthGuard } from './admin/service/admin-auth-guard.service';
 import { AuthGuard } from './shared/service/auth-guard.service';
 
 // Component
@@ -23,8 +23,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LoginComponent } from './login/login.component';
 import { PlaceOrderComponent } from './place-order/place-order.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminProductFormComponent } from './admin/admin-product-form/admin-product-form.component';
+import { AdminProductsComponent } from './admin/component/admin-products/admin-products.component';
+import { AdminProductFormComponent } from './admin/component/admin-product-form/admin-product-form.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 
 @NgModule({

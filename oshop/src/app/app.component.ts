@@ -1,9 +1,10 @@
-import { NavigationService } from './shared/service/navigation.service';
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { AuthService } from './shared/service/auth.service';
+import { NavigationService } from './shared/service/navigation.service';
 import { UserService } from './shared/service/user.service';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',
