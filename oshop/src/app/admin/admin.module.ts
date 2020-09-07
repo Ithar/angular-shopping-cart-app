@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AdminProductFormComponent } from '../admin/component/admin-product-form/admin-product-form.component';
@@ -10,10 +11,11 @@ import { AdminAuthGuard } from './service/admin-auth-guard.service';
 @NgModule({
   declarations: [
     AdminProductsComponent,
-    AdminProductFormComponent,
+    AdminProductFormComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild([
       { path: 'admin/product/new', component: AdminProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
       { path: 'admin/product/:id', component: AdminProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },

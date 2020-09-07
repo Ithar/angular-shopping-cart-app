@@ -11,7 +11,7 @@
                 {{c.name}}
             </a>
 
-            <a *ngIf="categories$ | async" (click)="filter('')" routerLink="/" class="list-group-item list-group-item-action">- RESET - </a>
+            <a *ngIf="categories$ | async" (click)="filter('')" routerLink="/" class="list-group-item list-group-item-action"> <i class="fas fa-redo-alt"></i> Rest</a>
         </div>
     </div>
     <div class="col">
@@ -36,7 +36,7 @@
                                     <div class="col-3">
                                         <button (click)="removeFromCart(p)" class="btn btn-secondary btn-block">-</button>
                                     </div>
-                                    <div class="col text-center">{{ getProductQuantity(p.id) }}</div>
+                                    <div class="col text-center mt-2">{{ getProductQuantity(p.id) }}</div>
                                     <div class="col-3">
                                         <button (click)="addToCart(p)" class="btn btn-secondary btn-block">+</button>
                                     </div>
