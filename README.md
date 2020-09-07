@@ -97,3 +97,6 @@ Console: https://console.firebase.google.com/project/oshop-angular-v1/overview
 - Data-tables listing page
 - Fix (Fb/Twitter) social sign-in
 
+-----
+
+![Home](preview/home.png)
