@@ -29,7 +29,7 @@
         </ng-template>
         <li class="nav-item">
           <a class="nav-link" routerLink="/shopping-cart">
-            <span>Cart </span>
+            <i class="fas fa-shopping-cart mr-2"></i>
             <span class="badge badge-pill badge-warning" *ngIf="cart$ | async as cart">{{ cart.totalQuantity }} </span>
           </a>
         </li>

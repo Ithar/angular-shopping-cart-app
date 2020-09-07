@@ -38,6 +38,7 @@ npm i --save firebase
 npm i --save @angular/fire
 npm i --save bootstrap
 npm i --save uuid
+npm i --save font-awesome
 sudo npm i -g firebase-tools
 ng add @ng-bootstrap/ng-bootstrap
 ```
@@ -91,6 +92,8 @@ Hosting: https://oshop-angular-v1.web.app
 Console: https://console.firebase.google.com/project/oshop-angular-v1/overview
 
 ## Further enhancements 
+- Mobile view responsive
 - Registration page
-- Other Social sign-in options
-- Datatables listing page
+- Data-tables listing page
+- Fix (Fb/Twitter) social sign-in
+
