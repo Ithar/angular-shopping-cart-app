@@ -99,4 +99,4 @@ Console: https://console.firebase.google.com/project/oshop-angular-v1/overview
 
 -----
 
-![Home](preview/home.png)
+![Home](preview/Home.png)
